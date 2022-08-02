@@ -1,38 +1,9 @@
 import './style.css';
 
-const elements = [
-  { id: 1, title: 'Ocean Wanders' },
-  { id: 2, title: 'Waterfall Cave' },
-  { id: 3, title: 'Rainbow Falls' },
-  { id: 4, title: 'Canyon Peaks' },
-  { id: 5, title: 'Montain Inlet' },
-  { id: 6, title: 'Angel Cliffs' },
-  { id: 7, title: 'Aurora Sound' },
-  { id: 8, title: 'Ice Meadows' },
-];
-
-const sliderContainer = document.querySelector('[data-slideContainer]');
-
-elements.forEach((slide) => {
-  var el = document.createElement('div');
-  el.setAttribute('data-slide', '');
-  el.className = 'relative w-full xs:w-auto flex-grow flex-shrink-0 xs:basis-96 pr-4';
-  el.innerHTML = `<img
-    class="object-cover h-full [@media(hover:hover)]:grayscale hover:grayscale-0 transition-all peer"
-    src="./images/slider-${slide.id}.jpg"
-    alt="${slide.title}"
-    />
-    <p
-    class="absolute bottom-4 left-4 px-4 py-2 font-bold bg-bkg text-lg pointer-events-none tracking-wide [@media(hover:hover)]:opacity-0 peer-hover:opacity-100 transition-opacity"
-    >
-    ${slide.title}
-    </p>`;
-
-  sliderContainer.appendChild(el);
-});
-
 let currentIndex = 0;
 let isMoving = false;
+
+const sliderContainer = document.querySelector('[data-slideContainer]');
 const slideBtns = document.querySelectorAll('[data-slideBtn]');
 const slides = document.querySelectorAll('[data-slide]');
 slides[slides.length - 1].classList.remove('pr-4');
